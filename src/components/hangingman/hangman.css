@@ -1,0 +1,103 @@
+.hangman {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 25px;
+    left: 50px;
+    height: 10px;
+    width: 75px; 
+    background-color: black;
+}
+
+.middle {
+    position: absolute;
+    bottom: 25px;
+    left: 80px;
+    height: 225px;
+    width: 10px;
+    background-color: black;
+}
+
+.top {
+    position: absolute;
+    top: 50px;
+    left: 80px;
+    height: 10px;
+    width: 110px;
+    background-color: black;
+}
+
+.rope {
+    position: absolute;
+    top: 50px;
+    left: 190px;
+    height: 50px;
+    width: 5px;
+    background-color: black;
+}
+
+.head {
+    position: absolute;
+    top: 100px;
+    left: 190px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: black;
+    transform: translate(-40%, -50%);
+}
+
+.body {
+    position: absolute;
+    top: 110px;
+    left: 190px;
+    height: 75px;
+    width: 5px;
+    background-color: black;
+}
+
+.right-leg {
+    position: absolute;
+    top: 183px;
+    left: 199px;
+    height: 50px;
+    width: 5px;
+    background-color: black;
+    transform: rotate(-20deg);
+}
+
+.left-leg {
+    position: absolute;
+    top: 183px;
+    left: 180px;
+    height: 50px;
+    width: 5px;
+    background-color: black;
+    transform: rotate(20deg);
+}
+
+.right-arm {
+    position: absolute;
+    top: 130px;
+    left: 197px;
+    height: 40px;
+    width: 5px;
+    background-color: black;
+    transform: rotate(-20deg);
+}
+
+.left-arm {
+    position: absolute;
+    top: 130px;
+    left: 182px;
+    height: 40px;
+    width: 5px;
+    background-color: black;
+    transform: rotate(20deg);
+}
