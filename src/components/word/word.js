@@ -1,13 +1,17 @@
 import React from 'react';
-import randomWords from 'random-words';
 import './word.css';
 
-const randomWord = randomWords(1) + ''
 
-const word = () => {
+
+const word = ({ word, guessedLetters }) => {
+    
+    let blankWord = '_ '.repeat(word.length);
+    
+   
+
     return (
         <div className="word">
-           <div className="letter">{'_ '.repeat(randomWord.length)}</div> 
+           <div className="letter">{blankWord}</div> 
         </div>
     )
 }

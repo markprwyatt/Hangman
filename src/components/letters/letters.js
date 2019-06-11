@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import "./letters.css";
 
-const letters = () => {
+const letters = ({ letters, checkLetter }) => {
     return (
-        <div>
-            These are the letters
+        <div className="keyboard">
+            {letters.map(letter => <div className="letters" 
+            onClick={checkLetter}
+            key={letter}>{letter}</div>)}
         </div>
     )
 }

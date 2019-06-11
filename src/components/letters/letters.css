@@ -1,0 +1,25 @@
+.keyboard {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    margin-left: 10%;
+    width: 75vw;
+    padding: 10px;
+
+}
+
+.letters {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px;
+    width: 5vw;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px 1px black;
+}
+
+.letters:hover {
+    cursor: pointer;
+}
