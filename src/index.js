@@ -13,7 +13,7 @@ class App extends React.Component {
 
 state = {word: '',
          livesLeft: 6,
-         lettersLeft: [...'abcdefghijklmnopqrstuvwxyz'],
+         lettersToPickFrom: [...'abcdefghijklmnopqrstuvwxyz'],
          guessedLetters: [],
          gameOver: false}
 
@@ -32,15 +32,12 @@ checkLetter = (e) => {
     if (letterPicked === word[i]) {
       console.log('ITS A MATCH');
       this.setState({
-        lettersLeft: this.state.lettersLeft
-        .filter(letter => letter !== letterPicked),
         guessedLetters: [...this.state.guessedLetters, letterPicked]
         });
      } 
   }
 
   if (!word.includes(letterPicked)) {
-    console.log("Life lost");
     this.decreaseLivesLeft();
   }
 
@@ -53,21 +50,51 @@ decreaseLivesLeft() {
     livesLeft: prevState.livesLeft - 1
   }))
 
-  if (this.state.livesLeft === 0) {
+  if (this.state.livesLeft < 2) {
     this.setState({gameOver: true})
   }
+}
+
+resetRandomWord = () => {
+  if (this.state.gameOver) {
+    this.setState({word: '',
+                   livesLeft: 6,
+                   lettersToPickFrom: [...'abcdefghijklmnopqrstuvwxyz'],
+                   guessedLetters: [],
+                   gameOver: false})
+  }
+  this.getRandomWord()
 }
 
 
    
 render() { 
+  
+  if (this.state.gameOver) {
     return (
+      <>
+      <div>You gameOver!</div>
+      <button onClick={this.resetRandomWord}>Reset</button>
+      </>
+    )
+  }
+
+  if (this.state.word.length === this.state.guessedLetters.length) {
+    return (
+      <>
+      <div>You win!</div>
+      <button onClick={this.resetRandomWord}>Reset</button>
+      </>
+    )
+  }
+  
+  return (
         <div>
           <Hangingman livesLeft={this.state.livesLeft}/>
           <Word word={this.state.word}
           guessedLetters={this.state.guessedLetters}/>
           <Letters 
-          letters={this.state.lettersLeft}
+          letters={this.state.lettersToPickFrom}
           checkLetter={this.checkLetter}
           />
         </div>
